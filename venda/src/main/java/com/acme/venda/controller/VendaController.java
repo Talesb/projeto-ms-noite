@@ -16,11 +16,11 @@ public class VendaController {
 
     @PostMapping
     public ResponseEntity create (@RequestBody Venda venda) {
-        LicenciamentoResponsePayload lincenciamentoResponse = licenciamentoService.getTotalLicenciamento(venda);
+        LicenciamentoResponsePayload lincenciamentoResponse = licenciamentoService.obterTotalLicenciamento(venda);
         venda.setTotalLicenciamento(lincenciamentoResponse.totalLicenciamento());
         venda.setTotalVenda(vendaService.calcularTotalVenda(venda));
-        vendaService.salvar(venda);
-        return null;
+        Venda vendaSalva = vendaService.salvar(venda);
+        return ResponseEntity.status(HttpStatus.CREATED).body(vendaSalva);
     }
 
 }

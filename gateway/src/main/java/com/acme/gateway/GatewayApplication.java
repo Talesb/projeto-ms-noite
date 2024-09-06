@@ -1,15 +1,15 @@
-package com.acme.venda;
+package com.acme.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.openfeign.*;
+import org.springframework.cloud.client.discovery.*;
 
 @SpringBootApplication
-@EnableFeignClients
-public class VendaApplication {
+@EnableDiscoveryClient
+public class GatewayApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(VendaApplication.class, args);
+		SpringApplication.run(GatewayApplication.class, args);
 	}
 
 }

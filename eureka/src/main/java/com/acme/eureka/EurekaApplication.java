@@ -1,15 +1,15 @@
-package com.acme.venda;
+package com.acme.eureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.openfeign.*;
+import org.springframework.cloud.netflix.eureka.server.*;
 
 @SpringBootApplication
-@EnableFeignClients
-public class VendaApplication {
+@EnableEurekaServer
+public class EurekaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(VendaApplication.class, args);
+		SpringApplication.run(EurekaApplication.class, args);
 	}
 
 }
