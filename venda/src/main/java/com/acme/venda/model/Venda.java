@@ -21,4 +21,6 @@ public class Venda {
 
     private BigDecimal totalLicenciamento;
 
+    private BigDecimal totalVenda;
+
 }

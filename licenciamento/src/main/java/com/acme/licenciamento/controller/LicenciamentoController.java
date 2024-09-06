@@ -18,8 +18,8 @@ public class LicenciamentoController {
 
     @PostMapping
     public ResponseEntity calcularLicenciamento (@RequestBody VendaPayLoad vendaPayload) {
-        BigDecimal licenciamentoTotal = licenciamentoService.calcularLicenciamentoTotal(vendaPayload);
-        return ResponseEntity.ok(Map.of("totalLicenciamento", licenciamentoTotal));
+        BigDecimal totalLicenciamento = licenciamentoService.calcularLicenciamentoTotal(vendaPayload);
+        return ResponseEntity.ok(Map.of("totalLicenciamento", totalLicenciamento));
     }
 
 }

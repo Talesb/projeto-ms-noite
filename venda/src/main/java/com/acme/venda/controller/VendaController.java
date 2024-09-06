@@ -17,8 +17,8 @@ public class VendaController {
     @PostMapping
     public ResponseEntity create (@RequestBody Venda venda) {
         LicenciamentoResponsePayload lincenciamentoResponse = licenciamentoService.getTotalLicenciamento(venda);
-        System.out.println("totalLicenciamento: " + lincenciamentoResponse);
         venda.setTotalLicenciamento(lincenciamentoResponse.totalLicenciamento());
+        venda.setTotalVenda(vendaService.calcularTotalVenda(venda));
         vendaService.salvar(venda);
         return null;
     }

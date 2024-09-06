@@ -1,4 +1,4 @@
-INSERT INTO MONTADORA(nome, pais) VALUES ('Delirium', 2);
-INSERT INTO MONTADORA(nome, pais) VALUES ('Roleta Russa', 4);
-INSERT INTO MONTADORA(nome, pais) VALUES ('Dark Dog', 3);
-INSERT INTO MONTADORA(nome, pais) VALUES ('Chzevar', 1);
+INSERT INTO MONTADORA(nome, pais) VALUES ('Honda', 4);
+INSERT INTO MONTADORA(nome, pais) VALUES ('Toyota', 3);
+INSERT INTO MONTADORA(nome, pais) VALUES ('Tesla', 2);
+INSERT INTO MONTADORA(nome, pais) VALUES ('Ford', 1);

@@ -14,14 +14,24 @@ public class LicenciamentoService {
     private final MontadoraService montadoraService;
 
     public BigDecimal calcularLicenciamentoTotal (VendaPayLoad vendaPayload) {
-        return vendaPayload.itens().stream().map(this::calcularImposto).reduce(BigDecimal.ZERO, BigDecimal::add);
+        return vendaPayload.itens().stream().map(this::calcularLicenciamento).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
-    private BigDecimal calcularImposto (ItemVenda itemVenda) {
+    private BigDecimal calcularLicenciamento (ItemVenda itemVenda) {
         Carro carro = carroService.getById(itemVenda.getCarroId());
         Montadora montadora = montadoraService.getById(carro.getIdMontadora());
         BigDecimal taxa = getTaxas(montadora.getPais());
-        return carro.getPreco().multiply(taxa).multiply(new BigDecimal(itemVenda.getQuantidade()));
+
+        BigDecimal precoOriginal = carro.getPreco();
+
+        BigDecimal desconto = BigDecimal.ZERO;
+        if (itemVenda.getQuantidade() > 5) {
+            desconto = precoOriginal.multiply(new BigDecimal("0.10"));
+        }
+
+        BigDecimal precoComDesconto = precoOriginal.subtract(desconto);
+
+        return precoComDesconto.multiply(taxa).multiply(new BigDecimal(itemVenda.getQuantidade()));
 
     }
 
