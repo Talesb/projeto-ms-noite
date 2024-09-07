@@ -1,4 +1,4 @@
-package com.acme.licenciamento.service;
+package com.acme.licenciamento.service.clients;
 
 import com.acme.licenciamento.model.*;
 import org.springframework.cloud.openfeign.*;
