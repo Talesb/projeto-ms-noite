@@ -1,0 +1,3 @@
+INSERT INTO REVISAO (CARRO_ID, DESCRICAO, PRECO_TOTAL) VALUES (1, 'Troca completa de óleo e filtro, com verificação dos freios e suspensão.', 150.00);
+INSERT INTO REVISAO (CARRO_ID, DESCRICAO, PRECO_TOTAL) VALUES (1, 'Revisão básica: troca de filtro de ar e ajuste do alinhamento.', 100.00);
+INSERT INTO REVISAO (CARRO_ID, DESCRICAO, PRECO_TOTAL) VALUES (1, 'Serviço insatisfatório: problemas não resolvidos com a troca de velas e filtro de óleo.', 50.00);

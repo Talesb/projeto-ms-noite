@@ -1,15 +1,13 @@
-package com.acme.carro;
+package com.acme.revisao;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.openfeign.*;
 
 @SpringBootApplication
-@EnableFeignClients
-public class CarroApplication {
+public class RevisaoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CarroApplication.class, args);
+		SpringApplication.run(RevisaoApplication.class, args);
 	}
 
 }

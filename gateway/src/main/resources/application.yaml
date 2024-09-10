@@ -10,10 +10,30 @@ spring:
             - Path=/carro/**
           filters:
             - StripPrefix=1
+            - name: Retry
+              args:
+                retries: 3
+                methods: GET, POST
+                backoff:
+                  initialInterval: 100ms
+                  maxInterval: 2s
+                  multiplier: 1.5
         - id: venda
           uri: lb://VENDA-SERVICE
           predicates:
             - Path=/venda/**
+          filters:
+            - StripPrefix=1
+        - id: montadora
+          uri: lb://MONTADORA-SERVICE
+          predicates:
+            - Path=/montadora/**
+          filters:
+            - StripPrefix=1
+        - id: revisao
+          uri: lb://REVISAO-SERVICE
+          predicates:
+            - Path=/revisao/**
           filters:
             - StripPrefix=1
 server:
