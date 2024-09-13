@@ -13,6 +13,7 @@ public class VendaController {
 
     private final VendaService vendaService;
     private final LicenciamentoService licenciamentoService;
+    private final DocumentoService documentoService;
 
     @PostMapping
     public ResponseEntity create (@RequestBody Venda venda) {
@@ -20,6 +21,7 @@ public class VendaController {
         venda.setTotalLicenciamento(lincenciamentoResponse.totalLicenciamento());
         venda.setTotalVenda(vendaService.calcularTotalVenda(venda));
         Venda vendaSalva = vendaService.salvar(venda);
+        documentoService.emitir(vendaSalva.getId());
         return ResponseEntity.status(HttpStatus.CREATED).body(vendaSalva);
     }
 

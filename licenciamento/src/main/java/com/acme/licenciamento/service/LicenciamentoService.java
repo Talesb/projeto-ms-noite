@@ -2,6 +2,7 @@ package com.acme.licenciamento.service;
 
 import com.acme.licenciamento.model.*;
 import lombok.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.*;
 
 import java.math.*;
@@ -9,6 +10,33 @@ import java.math.*;
 @Service
 @RequiredArgsConstructor
 public class LicenciamentoService {
+
+    @Value("${taxas.usa}")
+    private BigDecimal taxaUSA;
+
+    @Value("${taxas.europa}")
+    private BigDecimal taxaEuropa;
+
+    @Value("${taxas.brasil}")
+    private BigDecimal taxaBrasil;
+
+    @Value("${taxas.japao}")
+    private BigDecimal taxaJapao;
+
+    @Value("${taxas.alemanha}")
+    private BigDecimal taxaAlemanha;
+
+    @Value("${taxas.franca}")
+    private BigDecimal taxaFranca;
+
+    @Value("${taxas.italia}")
+    private BigDecimal taxaItalia;
+
+    @Value("${taxas.canada}")
+    private BigDecimal taxaCanada;
+
+    @Value("${taxas.australia}")
+    private BigDecimal taxaAustralia;
 
     private final CarroService carroService;
     private final MontadoraService montadoraService;
@@ -37,15 +65,15 @@ public class LicenciamentoService {
 
     private BigDecimal getTaxas (Pais pais) {
         return switch (pais) {
-            case USA -> new BigDecimal("0.45");
-            case EUROPA -> new BigDecimal("0.31");
-            case BRASIL -> new BigDecimal("0.05");
-            case JAPAO -> new BigDecimal("0.27");
-            case ALEMANHA -> new BigDecimal("0.22");
-            case FRANCA -> new BigDecimal("0.29");
-            case ITALIA -> new BigDecimal("0.25");
-            case CANADA -> new BigDecimal("0.33");
-            case AUSTRALIA -> new BigDecimal("0.37");
+            case USA -> taxaUSA;
+            case EUROPA -> taxaEuropa;
+            case BRASIL -> taxaBrasil;
+            case JAPAO -> taxaJapao;
+            case ALEMANHA -> taxaAlemanha;
+            case FRANCA -> taxaFranca;
+            case ITALIA -> taxaItalia;
+            case CANADA -> taxaCanada;
+            case AUSTRALIA -> taxaAustralia;
         };
     }
 
