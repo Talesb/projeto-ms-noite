@@ -24,6 +24,9 @@ spring:
             - Path=/venda/**
           filters:
             - StripPrefix=1
+            - name: UserAuthentication
+              args:
+                headerName: Authorization
         - id: montadora
           uri: lb://MONTADORA-SERVICE
           predicates:
