@@ -21,4 +21,9 @@ public class SecurityController {
         return ResponseEntity.ok(new ResponsePayload(authService.authenticate(loginRequest)));
     }
 
+    @PostMapping("/create")
+    public ResponseEntity<?> create (@RequestBody RegisterRequest registerRequest) {
+        return ResponseEntity.ok(authService.register(registerRequest));
+    }
+
 }

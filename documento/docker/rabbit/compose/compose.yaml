@@ -1,0 +1,15 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    container_name: RABBITMQ
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - ../config/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+      - ../config/definitions.json:/etc/rabbitmq/definitions.json:ro
+    networks:
+      - carros
+networks:
+  cervejas:
+    external: true

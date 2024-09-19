@@ -21,7 +21,7 @@ public class AuthService {
     public User register (RegisterRequest registerRequest) {
         User user = User.builder().name(registerRequest.firstName()).email(registerRequest.email())
                 .password(passwordEncoder.encode(registerRequest.password())).lastName(registerRequest.lastName())
-                .role(Role.USER).build();
+                .username(registerRequest.firstName() + registerRequest.lastName()).role(Role.USER).build();
         return userService.save(user);
     }
 

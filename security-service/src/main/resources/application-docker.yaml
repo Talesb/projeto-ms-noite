@@ -1,0 +1,22 @@
+spring:
+  server:
+    port: 8080
+  datasource:
+    url: jdbc:mariadb://MARIADB-SECURITY:3306/usuarios
+    username: user-service
+    password: 123456
+  application:
+    name: auth-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: never
+server:
+  port: 9997
+
+jwt:
+  secret: super-secret

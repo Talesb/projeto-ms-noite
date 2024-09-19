@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: docker
   datasource:
     url: jdbc:mariadb://localhost:3306/usuarios
     username: user-service
