@@ -55,7 +55,7 @@ services:
     image: talesb/configserver
     container_name: CONFIG-SERVER
     environment:
-      - GITHUB_TOKEN=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
+      - GITHUB_TOKEN=
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8888/actuator/health"]
       interval: 30s
