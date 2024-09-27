@@ -71,6 +71,12 @@ services:
       - montadora_acme
     depends_on:
       - eureka-server
+  revisao-service:
+    image: talesb/revisao
+    networks:
+      - montadora_acme
+    depends_on:
+      - eureka-server
   carro-service:
     image: talesb/carro
     networks:
